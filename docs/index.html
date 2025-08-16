@@ -46,7 +46,7 @@
     .collaboration-item h3 { font-size: 18px; font-weight: 400; margin-bottom: 6px; color: #333; }
     .collaboration-item p { font-size: 14px; color: #666; }
 
-    /* === Work grid (unchanged) === */
+    /* === Work grid === */
     .work-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     .work-gallery .artwork-item img { height: 250px; }
     .work-gallery .artwork-info { padding: 15px; }
@@ -61,6 +61,10 @@
       transition: transform .2s ease, box-shadow .2s ease;
     }
     .home-socials a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+    /* === CV logo slot === */
+    .cv-logos { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin: 0 auto 24px; justify-content:center; }
+    .cv-logos img { height: 36px; width:auto; display:block; }
 
     /* === Footer === */
     footer { text-align: center; padding: 60px 20px; color: #666; font-size: 14px; }
@@ -100,7 +104,7 @@
         </div>
 
         <div class="home-layout">
-          <!-- Featured artworks (ensure 3 images render) -->
+          <!-- Featured artworks -->
           <div class="featured-gallery">
             <div class="artwork-item">
               <img loading="eager" src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1000&h=600&fit=crop" alt="Featured Artwork 1">
@@ -127,7 +131,7 @@
             </div>
           </div>
 
-          <!-- Collaborations (right column) -->
+          <!-- Collaborations -->
           <aside class="collaborations">
             <h2>Collaborations</h2>
             <div class="collaboration-item">
@@ -173,7 +177,7 @@
         </p>
 
         <div class="work-gallery">
-          <!-- keep your existing items; one example kept here -->
+          <!-- Keep your existing items (example shown) -->
           <div class="artwork-item">
             <img loading="lazy" src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=800&h=500&fit=crop" alt="Ethereal Landscapes">
             <div class="artwork-info">
@@ -181,62 +185,65 @@
               <p>Oil painting exploring dreamlike natural forms</p>
             </div>
           </div>
-          <!-- …your remaining work items remain as in your file… -->
+          <!-- …other work items remain… -->
         </div>
       </div>
     </div>
 
-    <!-- About -->
+    <!-- About (updated with your inputs) -->
     <div id="about" class="page">
       <div class="container">
         <div class="hero">
           <h1>About</h1>
-          <p>Practice, materials, and ideas that shape the work</p>
+          <p>Sustainable practice at the intersection of art and fashion</p>
         </div>
         <div style="max-width:900px;margin:0 auto;color:#555;">
           <p style="margin-bottom:16px;">
-            XinXinWang is a contemporary artist working between painting and digital media. The studio practice
-            focuses on how memory, sound, and urban light leave traces on surfaces—sometimes precise, often
-            intentionally imperfect. Material research includes acrylic, oil, graphite, and generative textures.
+            XinXinWang is a London-based artist working across painting, mixed media, and fashion-adjacent forms.
+            The practice centres on sustainability—favouring recycled, responsibly sourced, or low-impact materials—
+            and explores how garments and canvases can both carry memory, place, and care.
           </p>
           <p style="margin-bottom:16px;">
-            Recent explorations combine hand-painted layers with algorithmic patterns, allowing accidents to sit
-            beside structure. The aim is to hold both: the calm of measured composition and the surprise of the
-            unplanned mark.
+            Current studio research looks at material lifecycles: dyes made from natural or kitchen waste, repurposed
+            textiles, and surfaces that can be repaired rather than discarded. The aim is to keep beauty and rigour
+            without wastefulness—letting craft and ethics sit together.
           </p>
           <p>
-            Based in the UK and open to residencies, commissions, and collaborative projects across disciplines.
+            Based in London, UK. Studying at Kingston School of Art.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- C.V. -->
+    <!-- C.V. (with Kingston + Chelsea Arts Club Trust) -->
     <div id="cv" class="page">
       <div class="container">
         <div class="hero">
           <h1>C.V.</h1>
-          <p>Selected exhibitions, education, and residencies</p>
+          <p>Selected exhibitions, education, and awards</p>
+        </div>
+
+        <!-- Logo slot: drop a file at /assets/kingston-logo.svg -->
+        <div class="cv-logos">
+          <!-- Minimal placeholder logo reference -->
+          <img src="assets/kingston-logo.svg" alt="Kingston School of Art logo" onerror="this.style.display='none'">
         </div>
 
         <div style="max-width:900px;margin:0 auto;color:#555;">
+          <h3 style="font-weight:500;margin-bottom:8px;">Education</h3>
+          <ul style="margin:0 0 20px 18px;">
+            <li>Kingston School of Art — London, UK (current)</li>
+          </ul>
+
+          <h3 style="font-weight:500;margin-bottom:8px;">Awards / Grants</h3>
+          <ul style="margin:0 0 20px 18px;">
+            <li>Chelsea Arts Club Trust — Recipient</li>
+          </ul>
+
           <h3 style="font-weight:500;margin-bottom:8px;">Selected Exhibitions</h3>
           <ul style="margin:0 0 20px 18px;">
             <li>2025 — <em>Light / Memory</em>, Group Show, London</li>
             <li>2024 — <em>Thresholds</em>, Duo Exhibition, Manchester</li>
-            <li>2023 — <em>City Traces</em>, Solo Presentation, Bristol</li>
-          </ul>
-
-          <h3 style="font-weight:500;margin-bottom:8px;">Education</h3>
-          <ul style="margin:0 0 20px 18px;">
-            <li>BA (Hons) Fine Art — UK</li>
-            <li>Workshops in generative art and digital fabrication</li>
-          </ul>
-
-          <h3 style="font-weight:500;margin-bottom:8px;">Residencies / Awards</h3>
-          <ul style="margin:0 0 20px 18px;">
-            <li>2025 — City Light Residency (UK)</li>
-            <li>2024 — Emerging Artist Grant</li>
           </ul>
 
           <p><small>Full CV available on request.</small></p>
@@ -244,29 +251,23 @@
       </div>
     </div>
 
-    <!-- Contact -->
+    <!-- Contact (Instagram only, as requested) -->
     <div id="contact" class="page">
       <div class="container">
         <div class="hero">
           <h1>Contact</h1>
-          <p>For commissions, exhibitions, and general enquiries</p>
+          <p>For commissions and enquiries, please use Instagram</p>
         </div>
 
-        <div style="max-width:800px;margin:0 auto;color:#555;">
-          <p style="margin-bottom:10px;">
-            Email: <a href="mailto:studio@xinxinwang.art">studio@xinxinwang.art</a>
-          </p>
-          <p style="margin-bottom:20px;">
-            For time-sensitive requests, include proposed dates, dimensions, and any references.
-          </p>
-
-          <!-- Simple non-functional form (example only) -->
-          <form onsubmit="event.preventDefault(); alert('Thanks! This is a demo form.');" style="display:grid; gap:12px;">
-            <input type="text" placeholder="Your name" required style="padding:10px;border:1px solid #ddd;border-radius:6px;">
-            <input type="email" placeholder="Your email" required style="padding:10px;border:1px solid #ddd;border-radius:6px;">
-            <textarea rows="5" placeholder="Message" required style="padding:10px;border:1px solid #ddd;border-radius:6px;"></textarea>
-            <button type="submit" style="padding:10px 14px;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;">Send</button>
-          </form>
+        <div style="display:flex;justify-content:center;">
+          <a href="https://instagram.com/xinxinwang.artist" target="_blank" rel="noopener" aria-label="Instagram: @xinxinwang.artist" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#333;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke="#333" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="4" stroke="#333" stroke-width="1.5"/>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="#333"/>
+            </svg>
+            <span>@xinxinwang.artist</span>
+          </a>
         </div>
       </div>
     </div>
@@ -279,16 +280,15 @@
   </footer>
 
   <script>
-    // Simple page switcher (handler = a function that handles an action)
+    // Page switcher
     function showPage(pageId) {
       const pages = document.querySelectorAll('.page');
       pages.forEach(p => p.classList.remove('active'));
       const target = document.getElementById(pageId);
       if (target) target.classList.add('active');
-      // Ensure browser can lay out images before user scrolls fast
       if (pageId === 'home') {
         document.querySelectorAll('#home img[loading="lazy"]').forEach(img => {
-          if (img.complete === false) img.loading = 'eager';
+          if (!img.complete) img.loading = 'eager';
         });
       }
     }
