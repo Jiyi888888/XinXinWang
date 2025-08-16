@@ -6,6 +6,29 @@
   <title>XinXinWang — Home</title>
   <meta name="description" content="Home page for XinXinWang, minimalist portfolio." />
   <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    /* Home page specific overrides */
+    .home-gallery{
+      max-width: var(--maxw);
+      margin: 20px auto;
+      padding: 0 16px;
+      display:flex;
+      flex-direction:column;
+      gap:40px;
+    }
+    .home-gallery img{
+      width:100%;
+      height:auto;
+      border:1px solid var(--border);
+      border-radius:6px;
+    }
+    .caption{
+      font-size:.9rem; 
+      color:var(--muted); 
+      margin-top:6px; 
+      text-align:center;
+    }
+  </style>
 </head>
 <body>
   <header class="navbar">
@@ -23,15 +46,23 @@
 
   <main class="container">
     <h1>Welcome</h1>
-    <p class="lead">A clean, minimalist showcase of artwork and projects by XinXin Wang.</p>
+    <p class="lead">A quiet, minimalist showcase of selected works by XinXin Wang.</p>
 
-    <h2>Explore</h2>
-    <div class="grid">
-      <a class="card" href="work.html"><strong>Work</strong><br><span class="lead">Selected artworks</span></a>
-      <a class="card" href="about.html"><strong>About</strong><br><span class="lead">Artist statement & bio</span></a>
-      <a class="card" href="cv.html"><strong>CV</strong><br><span class="lead">Exhibitions & press</span></a>
-      <a class="card" href="contact.html"><strong>Contact</strong><br><span class="lead">Email & social</span></a>
-    </div>
+    <!-- Home gallery: 3 stacked artworks -->
+    <section class="home-gallery">
+      <div>
+        <img src="assets/images/art-01.jpg" alt="Quiet Form I — Acrylic on canvas (2024)" loading="lazy">
+        <div class="caption">Quiet Form I · Acrylic (2024)</div>
+      </div>
+      <div>
+        <img src="assets/images/art-02.jpg" alt="Quiet Form II — Oil on canvas (2024)" loading="lazy">
+        <div class="caption">Quiet Form II · Oil (2024)</div>
+      </div>
+      <div>
+        <img src="assets/images/art-03.jpg" alt="Ink Study A — Ink on paper (2023)" loading="lazy">
+        <div class="caption">Ink Study A · Ink (2023)</div>
+      </div>
+    </section>
   </main>
 
   <footer>
