@@ -12,11 +12,11 @@ nav {
 .nav-container {
   display: flex; justify-content: space-between; align-items: center;
   max-width: 1200px; margin: 0 auto; padding: 0 20px;
-  position: relative; /* anchor for dropdown */
+  position: relative; /* dropdown anchor */
 }
 .logo { font-size: 24px; font-weight: 300; letter-spacing: 2px; }
 
-/* Desktop nav links (row) */
+/* Desktop links */
 .nav-links { display: flex; list-style: none; gap: 40px; }
 .nav-links a {
   text-decoration: none; color: #333; font-weight: 300; letter-spacing: 1px;
@@ -24,22 +24,18 @@ nav {
 }
 .nav-links a:hover, .nav-links a.active { color: #666; }
 
-/* === Beautiful Hamburger (icon-only, no box) === */
+/* === Hamburger (3 lines, no box) === */
 .nav-toggle {
-  display: none; /* hidden by default; shown on mobile in media query */
+  display: none; /* hidden on desktop; shown on mobile below */
   background: transparent; border: 0; padding: 6px; cursor: pointer; line-height: 1;
 }
 .nav-toggle:focus-visible { outline: 2px solid #999; outline-offset: 2px; }
-
-/* Three bars */
 .nav-toggle .bar {
   display: block; width: 26px; height: 2px; background: #333;
   transition: transform .22s ease, opacity .18s ease;
   transform-origin: 7px 1px;
 }
 .nav-toggle .bar + .bar { margin-top: 6px; }
-
-/* Morph to X on open */
 .nav-toggle.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .nav-toggle.open .bar:nth-child(2) { opacity: 0; }
 .nav-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -50,7 +46,7 @@ main { margin-top: 80px; }
 .hero h1 { font-size: 48px; font-weight: 200; margin-bottom: 20px; letter-spacing: 3px; }
 .hero p { font-size: 18px; color: #666; font-weight: 300; }
 
-/* === Home split: featured (left) + collaborations (right) === */
+/* === Home split === */
 .home-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: start; }
 .featured-gallery { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
 .artwork-item {
@@ -95,17 +91,30 @@ main { margin-top: 80px; }
 @media (max-width: 768px) {
   .nav-container { gap: 10px; }
   .nav-toggle { display: inline-block; } /* show hamburger */
+
+  /* Dropdown (anchored to bottom of nav container) */
   .nav-links {
-    position: absolute; left: 0; right: 0; top: 60px; /* below bar */
-    margin: 0 auto; max-width: 1200px; padding: 10px 20px;
+    position: absolute; left: 0; right: 0; top: calc(100% + 8px);
+    margin: 0; padding: 12px 16px;
     background: rgba(254,254,254,0.98); backdrop-filter: blur(10px);
-    border-bottom: 1px solid #eee; border-top: 1px solid #eee;
-    display: none; flex-direction: column; gap: 10px;
+    border: 1px solid #eee; border-left: 0; border-right: 0;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    display: none; flex-direction: column; gap: 0;
     transform-origin: top; transform: scaleY(0); opacity: 0;
     transition: transform .2s ease, opacity .2s ease;
+    z-index: 1001;
   }
   .nav-links.open { display: flex; transform: scaleY(1); opacity: 1; }
-  .nav-links a { font-size: 16px; padding: 8px 0; }
+
+  /* Indented dropdown links (your request) */
+  .nav-links li { list-style: none; }
+  .nav-links a {
+    font-size: 16px; display: block;
+    padding: 10px 0 10px 14px;                 /* indent */
+    border-left: 2px solid #eee;               /* subtle guide line */
+  }
+  .nav-links li + li a { border-top: 1px dashed #eee; }  /* separators */
+  .nav-links a:hover { color: #111; border-left-color: #ccc; }
 
   .hero h1 { font-size: 36px; }
   .home-layout { grid-template-columns: 1fr; }
@@ -118,13 +127,10 @@ main { margin-top: 80px; }
   .nav-toggle { display: none !important; }
 }
 
-/* === Desktop cursor: small paintbrush === */
-/* Data-URI SVG brush; fallback to auto */
+/* === Desktop cursor: small paintbrush (PNG file) === */
+/* Place a 32x32 transparent PNG at: assets/paintbrush-cursor.png */
 @media (min-width: 769px) {
   body {
-    cursor: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>\
-<path d='M3 21c4-1 6-3 7-6l9-9 3 3-9 9c-3 1-5 3-7 6z' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>\
-</svg>") 2 20, auto;
+    cursor: url("assets/paintbrush-cursor.png") 2 26, auto;
   }
 }
