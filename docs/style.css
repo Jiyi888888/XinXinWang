@@ -146,3 +146,19 @@ footer {
 @media (min-width: 769px) {
   body { cursor: url("assets/paintbrush-cursor.png") 2 26, auto; }
 }
+
+
+/* === Make featured artworks bigger on home === */
+.featured-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* spacing between artworks */
+}
+
+.featured-gallery .artwork-item img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh; /* keeps them tall but not overwhelming */
+  object-fit: cover;
+  border-radius: 12px;
+}
