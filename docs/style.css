@@ -164,7 +164,7 @@ footer {
 
   .nav-links li { list-style: none; }
 
-  /* === Centered mobile menu items (tweak) === */
+  /* === Centered mobile menu items === */
   .nav-links a {
     font-size: 16px;
     display: block;
@@ -181,7 +181,14 @@ footer {
   }
 
   .hero h1 { font-size: 36px; }
-  .artwork-item img { height: 50vh; max-height: 560px; }
+
+  /* === Mobile fix: show FULL image on Home (no crop) === */
+  .featured-gallery .artwork-item img {
+    width: 100%;
+    height: auto;  /* follow natural aspect ratio */
+    max-height: calc(100vh - (var(--navH-mobile) + 120px)); /* fit below fixed nav */
+    object-fit: contain;  /* no cropping; may add letterbox */
+  }
 }
 
 /* === Desktop guard === */
