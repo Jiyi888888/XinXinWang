@@ -162,3 +162,15 @@ footer {
   object-fit: cover;
   border-radius: 12px;
 }
+/* === Center artworks on home === */
+.featured-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center; /* center children horizontally */
+}
+
+.featured-gallery .artwork-item {
+  max-width: 900px; /* limit width so it doesn’t go too wide */
+  width: 100%;
+}
