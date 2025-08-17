@@ -151,3 +151,6 @@ footer { text-align: center; padding: 80px 20px 44px; color: #666; font-size: 14
 @media (min-width: 769px) {
   body { cursor: url("assets/paintbrush-cursor.png") 2 26, auto; }
 }
+
+/* optional: center captions */
+.artwork-info { text-align: center; }
