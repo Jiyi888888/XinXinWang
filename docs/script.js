@@ -27,6 +27,7 @@
 
   function setOpen(state){
     links.classList.toggle('open', state);
+    btn.classList.toggle('open', state);                 // animate the lines
     btn.setAttribute('aria-expanded', state ? 'true' : 'false');
   }
 
