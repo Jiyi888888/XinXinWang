@@ -18,3 +18,14 @@
     if (!img.complete) img.loading = 'eager';
   });
 })();
+
+// Mobile hamburger toggle
+(function mobileMenu(){
+  const btn = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (!btn || !links) return;
+  btn.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
