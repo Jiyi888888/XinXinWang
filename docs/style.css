@@ -44,10 +44,11 @@ nav {
 .nav-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* === Pages (global top padding so hero isn't cut) === */
-main { padding-top: var(--navH-desktop); }
-.hero { text-align: center; margin-bottom: 60px; }
-.hero h1 { font-size: 48px; font-weight: 200; margin-bottom: 20px; letter-spacing: 3px; }
-.hero p { font-size: 18px; color: #666; font-weight: 300; }
+main { padding-top: calc(var(--navH-desktop) + 40px); }  /* +40px extra space */
+@media (max-width: 768px){
+  main { padding-top: calc(var(--navH-mobile) + 40px); } /* +40px extra on phones */
+}
+
 
 /* === Home layout (single column) === */
 .home-layout { display: block; }
