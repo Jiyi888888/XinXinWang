@@ -3,21 +3,23 @@
 body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #fefefe; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* === Nav === */
+/* === Nav (logo centered, links centered underneath) === */
 nav {
   position: fixed; top: 0; width: 100%;
   background: rgba(254,254,254,0.95); backdrop-filter: blur(10px);
-  z-index: 1000; padding: 20px 0; border-bottom: 1px solid #eee;
+  z-index: 1000; padding: 28px 0; /* was 20 → slightly taller */
+  border-bottom: 1px solid #eee;
 }
 .nav-container {
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; flex-direction: column; align-items: center; /* stack + center */
   max-width: 1200px; margin: 0 auto; padding: 0 20px;
-  position: relative; /* dropdown anchor */
+  position: relative; /* anchor for mobile dropdown */
+  gap: 10px;
 }
-.logo { font-size: 24px; font-weight: 300; letter-spacing: 2px; }
+.logo { font-size: 24px; font-weight: 300; letter-spacing: 2px; text-align: center; }
 
-/* Desktop links */
-.nav-links { display: flex; list-style: none; gap: 40px; }
+/* Desktop links (centered row under the logo) */
+.nav-links { display: flex; list-style: none; gap: 28px; justify-content: center; }
 .nav-links a {
   text-decoration: none; color: #333; font-weight: 300; letter-spacing: 1px;
   transition: color 0.3s ease;
@@ -27,6 +29,7 @@ nav {
 /* === Hamburger (3 lines, no box) === */
 .nav-toggle {
   display: none; /* hidden on desktop; shown on mobile below */
+  position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
   background: transparent; border: 0; padding: 6px; cursor: pointer; line-height: 1;
 }
 .nav-toggle:focus-visible { outline: 2px solid #999; outline-offset: 2px; }
@@ -41,62 +44,54 @@ nav {
 .nav-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* === Pages === */
-main { margin-top: 80px; }
+main { margin-top: 100px; } /* increased to offset taller nav */
 .hero { text-align: center; margin-bottom: 60px; }
 .hero h1 { font-size: 48px; font-weight: 200; margin-bottom: 20px; letter-spacing: 3px; }
 .hero p { font-size: 18px; color: #666; font-weight: 300; }
 
 /* === Home layout (no sidebar) === */
-.home-layout {
-  /* previously grid with 2fr/1fr; now single column */
-  display: block;
-}
+.home-layout { display: block; }
 
+/* === Featured (Home) — sharp corners, no shadows, centered === */
 .featured-gallery {
-  /* center children and control max width */
-  display: flex;
-  flex-direction: column;
-  align-items: center;       /* horizontally center the artwork cards */
-  gap: 40px;
-  margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 40px; margin: 0 auto;
 }
-
 .artwork-item {
-  position: relative; overflow: hidden; border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: transform .3s ease, box-shadow .3s ease; background: #fff;
-  width: 100%;
-  max-width: 1000px;         /* keeps them centered with generous width */
+  position: relative; overflow: hidden; /* sharp corners */
+  border-radius: 0;                 /* no rounding */
+  box-shadow: none;                 /* no shadow */
+  transition: none;                 /* no hover lift */
+  background: #fff;                 /* clean white backing for image + info */
+  width: 100%; max-width: 1000px;
 }
-.artwork-item:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+.artwork-item:hover { transform: none; box-shadow: none; } /* disable hover fx */
 
 .artwork-item img {
-  width: 100%;
-  height: 60vh;              /* make them tall and impactful */
-  max-height: 900px;         /* safety cap on huge screens */
-  object-fit: cover; display: block;
+  width: 100%; height: 60vh; max-height: 900px;
+  object-fit: cover; display: block; border-radius: 0; /* sharp image */
 }
 
 .artwork-info { padding: 20px; background: #fff; }
 .artwork-info h3 { font-size: 22px; font-weight: 400; margin-bottom: 8px; color: #333; }
 .artwork-info p { color: #666; font-size: 15px; line-height: 1.6; }
 
-/* === (Removed) Collaborations ===
-   The entire aside and its styles are no longer used. */
-
-/* === Work grid (other pages) === */
+/* === Work grid (also sharp + no shadows) === */
 .work-gallery {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
 }
-.work-gallery .artwork-item img { height: 250px; }
-.work-gallery .artwork-info { padding: 15px; }
+.work-gallery .artwork-item {
+  border-radius: 0; box-shadow: none; transition: none; background: #fff;
+}
+.work-gallery .artwork-item:hover { transform: none; box-shadow: none; }
+.work-gallery .artwork-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 0; }
+.work-gallery .artwork-info { padding: 15px; background: #fff; }
 .work-gallery .artwork-info h3 { font-size: 18px; }
 
 /* === Home socials (IG icon-only) — with bigger spacing === */
 .home-socials {
   display: flex; justify-content: center;
-  margin-top: 60px;   /* extra space above IG */
-  margin-bottom: 48px; /* extra space before footer */
+  margin-top: 60px; margin-bottom: 48px;
 }
 .home-socials a {
   display: inline-flex; align-items: center; justify-content: center;
@@ -111,18 +106,13 @@ main { margin-top: 80px; }
 .cv-logos img { height: 36px; width:auto; display:block; }
 
 /* === Footer — centered with generous spacing === */
-footer {
-  text-align: center;
-  padding: 80px 20px 44px; /* more top space */
-  color: #666; font-size: 14px;
-}
+footer { text-align: center; padding: 80px 20px 44px; color: #666; font-size: 14px; }
 
-/* === Mobile (≤768px) — explicit overrides so phones pick it up === */
+/* === Mobile (≤768px) === */
 @media (max-width: 768px) {
-  .nav-container { gap: 10px; }
   .nav-toggle { display: inline-block; } /* show hamburger */
 
-  /* Dropdown (anchored to bottom of nav container) */
+  /* Dropdown */
   .nav-links {
     position: absolute; left: 0; right: 0; top: calc(100% + 8px);
     margin: 0; padding: 12px 16px;
@@ -140,20 +130,16 @@ footer {
   .nav-links li { list-style: none; }
   .nav-links a {
     font-size: 16px; display: block;
-    padding: 10px 0 10px 14px; /* indent */
-    border-left: 2px solid #eee;
+    padding: 10px 0 10px 14px; border-left: 2px solid #eee;
   }
   .nav-links li + li a { border-top: 1px dashed #eee; }
   .nav-links a:hover { color: #111; border-left-color: #ccc; }
 
   .hero h1 { font-size: 36px; }
+  .artwork-item img { height: 50vh; max-height: 560px; } /* still bold on phones */
 
-  /* Bigger but controlled image height on phones */
-  .artwork-item img { height: 50vh; max-height: 560px; }
-
-  /* Mobile-specific spacing (explicit) */
   .home-socials { margin-top: 56px; margin-bottom: 56px; }
-  footer { padding: 90px 20px 52px; }  /* ensure visibly larger on phones */
+  footer { padding: 90px 20px 52px; }
 }
 
 /* === Desktop guard (force-hide hamburger) === */
