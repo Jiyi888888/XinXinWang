@@ -90,6 +90,12 @@ main { padding-top: calc(var(--navH-desktop) + 60px); }
 .work-gallery .artwork-info { padding: 15px; background: #fff; }
 .work-gallery .artwork-info h3 { font-size: 18px; }
 
+/* Work: hide captions in the grid; show only in the lightbox */
+body[data-page="work"] .work-gallery .artwork-info {
+  display: none;
+}
+
+
 /* === Lightbox (fullscreen on Work) === */
 .lightbox {
   position: fixed; inset: 0; background: rgba(0,0,0,0.9);
