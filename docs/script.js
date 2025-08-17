@@ -49,3 +49,55 @@
     if (e.key === 'Escape') setOpen(false);
   });
 })();
+
+/* === Work page lightbox (fullscreen image with caption) === */
+(function workLightbox(){
+  if (document.body.dataset.page !== 'work') return;
+
+  const gallery = document.querySelector('.work-gallery');
+  const overlay = document.getElementById('lightbox');
+  const imgEl = document.getElementById('lightboxImg');
+  const titleEl = document.getElementById('lightboxTitle');
+  const descEl = document.getElementById('lightboxDesc');
+  const closeBtn = document.getElementById('lightboxClose');
+
+  if (!gallery || !overlay || !imgEl || !titleEl || !descEl || !closeBtn) return;
+
+  function openLightbox(fromFigure){
+    const img = fromFigure.querySelector('img');
+    const title = fromFigure.querySelector('.artwork-info h3');
+    const desc = fromFigure.querySelector('.artwork-info p');
+
+    imgEl.src = img.getAttribute('src');
+    imgEl.alt = img.getAttribute('alt') || '';
+    titleEl.textContent = title ? title.textContent : (imgEl.alt || 'Artwork');
+    descEl.textContent = desc ? desc.textContent : '';
+
+    overlay.classList.add('open');
+    document.documentElement.style.overflow = 'hidden'; // lock scroll
+  }
+
+  function closeLightbox(){
+    overlay.classList.remove('open');
+    imgEl.src = '';
+    document.documentElement.style.overflow = '';
+  }
+
+  // Click any work image to open
+  gallery.addEventListener('click', (e) => {
+    const card = e.target.closest('.artwork-item');
+    if (!card || !card.querySelector('img')) return;
+    e.preventDefault();
+    openLightbox(card);
+  });
+
+  // Close handlers
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeLightbox(); // click outside content
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeLightbox();
+  });
+})();
+
