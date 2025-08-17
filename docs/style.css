@@ -74,7 +74,11 @@ main { margin-top: 80px; }
 .work-gallery .artwork-info h3 { font-size: 18px; }
 
 /* === Home socials (IG icon-only) === */
-.home-socials { display: flex; justify-content: center; margin-top: 10px; }
+.home-socials {
+  display: flex; justify-content: center;
+  margin-top: 60px;  /* more space above IG */
+  margin-bottom: 40px; /* more space before footer */
+}
 .home-socials a {
   display: inline-flex; align-items: center; justify-content: center;
   width: 40px; height: 40px; border-radius: 50%;
@@ -86,6 +90,13 @@ main { margin-top: 80px; }
 /* === CV logos === */
 .cv-logos { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin: 0 auto 24px; justify-content:center; }
 .cv-logos img { height: 36px; width:auto; display:block; }
+
+/* === Footer === */
+footer {
+  text-align: center; /* centered text */
+  padding: 80px 20px 40px; /* more space on top */
+  color: #666; font-size: 14px;
+}
 
 /* === Mobile (≤768px) === */
 @media (max-width: 768px) {
@@ -106,14 +117,14 @@ main { margin-top: 80px; }
   }
   .nav-links.open { display: flex; transform: scaleY(1); opacity: 1; }
 
-  /* Indented dropdown links (your request) */
+  /* Indented dropdown links */
   .nav-links li { list-style: none; }
   .nav-links a {
     font-size: 16px; display: block;
-    padding: 10px 0 10px 14px;                 /* indent */
-    border-left: 2px solid #eee;               /* subtle guide line */
+    padding: 10px 0 10px 14px; /* indent */
+    border-left: 2px solid #eee;
   }
-  .nav-links li + li a { border-top: 1px dashed #eee; }  /* separators */
+  .nav-links li + li a { border-top: 1px dashed #eee; }
   .nav-links a:hover { color: #111; border-left-color: #ccc; }
 
   .hero h1 { font-size: 36px; }
@@ -128,7 +139,6 @@ main { margin-top: 80px; }
 }
 
 /* === Desktop cursor: small paintbrush (PNG file) === */
-/* Place a 32x32 transparent PNG at: assets/paintbrush-cursor.png */
 @media (min-width: 769px) {
   body {
     cursor: url("assets/paintbrush-cursor.png") 2 26, auto;
