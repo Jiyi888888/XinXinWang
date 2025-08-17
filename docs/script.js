@@ -19,7 +19,7 @@
   });
 })();
 
-/* Mobile hamburger toggle (with close-on-click/outside/ESC) */
+/* Mobile hamburger toggle (close on link, outside click, and ESC) */
 (function mobileMenu(){
   const btn   = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
@@ -27,7 +27,7 @@
 
   function setOpen(state){
     links.classList.toggle('open', state);
-    btn.classList.toggle('open', state);                 // animate the lines
+    btn.classList.toggle('open', state);  // animate bars -> X
     btn.setAttribute('aria-expanded', state ? 'true' : 'false');
   }
 
@@ -41,8 +41,7 @@
   // Close on outside click
   document.addEventListener('click', (e) => {
     if (!links.classList.contains('open')) return;
-    const withinNav = e.target.closest('nav');
-    if (!withinNav) setOpen(false);
+    if (!e.target.closest('nav')) setOpen(false);
   });
 
   // Close on Escape
