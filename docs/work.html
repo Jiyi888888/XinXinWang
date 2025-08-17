@@ -130,5 +130,17 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- Lightbox (fullscreen view for Work images) -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Artwork fullscreen view">
+    <img id="lightboxImg" class="lightbox-img" src="" alt="">
+    <div class="lightbox-caption">
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxDesc"></p>
+    </div>
+    <button id="lightboxClose" class="lightbox-close" aria-label="Close">×</button>
+  </div>
+</div>
+
 </body>
 </html>
