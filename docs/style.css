@@ -77,6 +77,12 @@ main { padding-top: calc(var(--navH-desktop) + 60px); }
 .artwork-info h3 { font-size: 22px; font-weight: 400; margin-bottom: 8px; color: #333; }
 .artwork-info p { color: #666; font-size: 15px; line-height: 1.6; }
 
+/* Home: center both title and description */
+body[data-page="home"] .featured-gallery .artwork-info {
+  text-align: center;
+}
+
+
 /* === Work grid === */
 .work-gallery {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
