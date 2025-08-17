@@ -200,3 +200,13 @@ footer {
 @media (min-width: 769px) {
   body { cursor: url("assets/paintbrush-cursor.png") 2 26, auto; }
 }
+
+/* === Home: show full artwork on desktop (no crop) === */
+@media (min-width: 769px) {
+  body[data-page="home"] .featured-gallery .artwork-item img {
+    width: 100%;
+    height: auto;  /* remove fixed 60vh */
+    max-height: calc(100vh - (var(--navH-desktop) + 120px)); /* fit under fixed nav */
+    object-fit: contain; /* no cropping; letterboxing if aspect differs */
+  }
+}
