@@ -46,29 +46,48 @@ main { margin-top: 80px; }
 .hero h1 { font-size: 48px; font-weight: 200; margin-bottom: 20px; letter-spacing: 3px; }
 .hero p { font-size: 18px; color: #666; font-weight: 300; }
 
-/* === Home split === */
-.home-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: start; }
-.featured-gallery { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
+/* === Home layout (no sidebar) === */
+.home-layout {
+  /* previously grid with 2fr/1fr; now single column */
+  display: block;
+}
+
+.featured-gallery {
+  /* center children and control max width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* horizontally center the artwork cards */
+  gap: 40px;
+  margin: 0 auto;
+}
+
 .artwork-item {
-  position: relative; overflow: hidden; border-radius: 8px;
+  position: relative; overflow: hidden; border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   transition: transform .3s ease, box-shadow .3s ease; background: #fff;
+  width: 100%;
+  max-width: 1000px;         /* keeps them centered with generous width */
 }
 .artwork-item:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-.artwork-item img { width: 100%; height: 260px; object-fit: cover; display: block; }
-.artwork-info { padding: 16px; background: #fff; }
-.artwork-info h3 { font-size: 20px; font-weight: 400; margin-bottom: 8px; color: #333; }
-.artwork-info p { color: #666; font-size: 14px; line-height: 1.5; }
 
-/* === Collaborations === */
-.collaborations { background: #fff; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); padding: 20px; position: sticky; top: 100px; }
-.collaborations h2 { font-size: 22px; margin-bottom: 16px; font-weight: 400; letter-spacing: 1px; }
-.collaboration-item { margin-bottom: 18px; }
-.collaboration-item h3 { font-size: 18px; font-weight: 400; margin-bottom: 6px; color: #333; }
-.collaboration-item p { font-size: 14px; color: #666; }
+.artwork-item img {
+  width: 100%;
+  height: 60vh;              /* make them tall and impactful */
+  max-height: 900px;         /* safety cap on huge screens */
+  object-fit: cover; display: block;
+}
 
-/* === Work grid === */
-.work-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.artwork-info { padding: 20px; background: #fff; }
+.artwork-info h3 { font-size: 22px; font-weight: 400; margin-bottom: 8px; color: #333; }
+.artwork-info p { color: #666; font-size: 15px; line-height: 1.6; }
+
+/* === (Removed) Collaborations ===
+   The entire aside and its styles are no longer used. */
+
+/* === Work grid (other pages) === */
+.work-gallery {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+}
 .work-gallery .artwork-item img { height: 250px; }
 .work-gallery .artwork-info { padding: 15px; }
 .work-gallery .artwork-info h3 { font-size: 18px; }
@@ -128,9 +147,9 @@ footer {
   .nav-links a:hover { color: #111; border-left-color: #ccc; }
 
   .hero h1 { font-size: 36px; }
-  .home-layout { grid-template-columns: 1fr; }
-  .featured-gallery { gap: 20px; }
-  .collaborations { position: static; }
+
+  /* Bigger but controlled image height on phones */
+  .artwork-item img { height: 50vh; max-height: 560px; }
 
   /* Mobile-specific spacing (explicit) */
   .home-socials { margin-top: 56px; margin-bottom: 56px; }
@@ -145,32 +164,4 @@ footer {
 /* === Desktop cursor: small paintbrush (PNG file) === */
 @media (min-width: 769px) {
   body { cursor: url("assets/paintbrush-cursor.png") 2 26, auto; }
-}
-
-
-/* === Make featured artworks bigger on home === */
-.featured-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 40px; /* spacing between artworks */
-}
-
-.featured-gallery .artwork-item img {
-  width: 100%;
-  height: auto;
-  max-height: 80vh; /* keeps them tall but not overwhelming */
-  object-fit: cover;
-  border-radius: 12px;
-}
-/* === Center artworks on home === */
-.featured-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  align-items: center; /* center children horizontally */
-}
-
-.featured-gallery .artwork-item {
-  max-width: 900px; /* limit width so it doesn’t go too wide */
-  width: 100%;
 }
