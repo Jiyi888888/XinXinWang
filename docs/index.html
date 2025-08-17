@@ -4,271 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>XinXinWang Portfolio</title>
-  <style>
-    /* === Base === */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #fefefe; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-    /* === Nav === */
-    nav {
-      position: fixed; top: 0; width: 100%;
-      background: rgba(254,254,254,0.95); backdrop-filter: blur(10px);
-      z-index: 1000; padding: 20px 0; border-bottom: 1px solid #eee;
-    }
-    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .logo { font-size: 24px; font-weight: 300; letter-spacing: 2px; }
-    .nav-links { display: flex; list-style: none; gap: 40px; }
-    .nav-links a { text-decoration: none; color: #333; font-weight: 300; letter-spacing: 1px; transition: color 0.3s ease; }
-    .nav-links a:hover { color: #666; }
-
-    /* === Pages === */
-    main { margin-top: 80px; }
-    .page { display: none; min-height: 100vh; padding: 40px 0; }
-    .page.active { display: block; }
-    .hero { text-align: center; margin-bottom: 60px; }
-    .hero h1 { font-size: 48px; font-weight: 200; margin-bottom: 20px; letter-spacing: 3px; }
-    .hero p { font-size: 18px; color: #666; font-weight: 300; }
-
-    /* === Home split: featured (left) + collaborations (right) === */
-    .home-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: start; }
-    .featured-gallery { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
-    .artwork-item { position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform .3s ease, box-shadow .3s ease; background: #fff; }
-    .artwork-item:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-    .artwork-item img { width: 100%; height: 260px; object-fit: cover; display: block; }
-    .artwork-info { padding: 16px; background: #fff; }
-    .artwork-info h3 { font-size: 20px; font-weight: 400; margin-bottom: 8px; color: #333; }
-    .artwork-info p { color: #666; font-size: 14px; line-height: 1.5; }
-
-    .collaborations { background: #fff; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); padding: 20px; position: sticky; top: 100px; }
-    .collaborations h2 { font-size: 22px; margin-bottom: 16px; font-weight: 400; letter-spacing: 1px; }
-    .collaboration-item { margin-bottom: 18px; }
-    .collaboration-item h3 { font-size: 18px; font-weight: 400; margin-bottom: 6px; color: #333; }
-    .collaboration-item p { font-size: 14px; color: #666; }
-
-    /* === Work grid === */
-    .work-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-    .work-gallery .artwork-item img { height: 250px; }
-    .work-gallery .artwork-info { padding: 15px; }
-    .work-gallery .artwork-info h3 { font-size: 18px; }
-
-    /* === Home socials (IG icon-only) === */
-    .home-socials { display: flex; justify-content: center; margin-top: 10px; }
-    .home-socials a {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 40px; height: 40px; border-radius: 50%;
-      border: 1px solid #ddd; background: #fff; text-decoration: none;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .home-socials a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-
-    /* === CV logo slot === */
-    .cv-logos { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin: 0 auto 24px; justify-content:center; }
-    .cv-logos img { height: 36px; width:auto; display:block; }
-
-    /* === Footer === */
-    footer { text-align: center; padding: 60px 20px; color: #666; font-size: 14px; }
-
-    /* === Mobile === */
-    @media (max-width: 768px) {
-      .nav-links { gap: 20px; }
-      .hero h1 { font-size: 36px; }
-      .home-layout { grid-template-columns: 1fr; }
-      .featured-gallery { gap: 20px; }
-      .collaborations { position: static; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Nav with C.V. -->
+<body data-page="home">
   <nav>
     <div class="nav-container">
       <div class="logo">XinXinWang</div>
       <ul class="nav-links">
-        <li><a href="#" onclick="showPage('home')">Home</a></li>
-        <li><a href="#" onclick="showPage('work')">Work</a></li>
-        <li><a href="#" onclick="showPage('about')">About</a></li>
-        <li><a href="#" onclick="showPage('cv')">C.V.</a></li>
-        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cv.html">C.V.</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
-    <!-- Home -->
-    <div id="home" class="page active">
-      <div class="container">
-        <div class="hero">
-          <h1>Creative Vision</h1>
-          <p>Contemporary art that speaks to the soul</p>
-        </div>
-
-        <div class="home-layout">
-          <!-- Featured artworks -->
-          <div class="featured-gallery">
-            <div class="artwork-item">
-              <img loading="eager" src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1000&h=600&fit=crop" alt="Featured Artwork 1">
-              <div class="artwork-info">
-                <h3>Urban Reflections</h3>
-                <p>Mixed media on canvas exploring the intersection of city life and human emotion through vibrant colors and dynamic forms.</p>
-              </div>
-            </div>
-
-            <div class="artwork-item">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=1000&h=600&fit=crop" alt="Featured Artwork 2">
-              <div class="artwork-info">
-                <h3>Silent Symphony</h3>
-                <p>Acrylic painting capturing the quiet moments of contemplation, using subtle textures and monochromatic tones.</p>
-              </div>
-            </div>
-
-            <div class="artwork-item">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=1000&h=600&fit=crop" alt="Featured Artwork 3">
-              <div class="artwork-info">
-                <h3>Digital Dreams</h3>
-                <p>Contemporary digital art piece exploring the boundaries between reality and imagination in our connected world.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Collaborations -->
-          <aside class="collaborations">
-            <h2>Collaborations</h2>
-            <div class="collaboration-item">
-              <h3>City Light Residency</h3>
-              <p>Site-specific works with local architects, mapping how light shapes public space across seasons.</p>
-            </div>
-            <div class="collaboration-item">
-              <h3>Echoes / Voices</h3>
-              <p>Sound and pigment experiment with a composer; paintings respond to field recordings and voice.</p>
-            </div>
-            <div class="collaboration-item">
-              <h3>Digital Weave</h3>
-              <p>Cross-disciplinary project with a creative coder, blending generative patterns with hand-painted layers.</p>
-            </div>
-          </aside>
-        </div>
-
-        <!-- IG icon-only link -->
-        <div class="home-socials" aria-label="Social links">
-          <a href="https://instagram.com/xinxinwang.artist" target="_blank" rel="noopener" aria-label="Instagram: @xinxinwang.artist">
-            <!-- Simple IG glyph (SVG) -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5" stroke="#333" stroke-width="1.5"/>
-              <circle cx="12" cy="12" r="4" stroke="#333" stroke-width="1.5"/>
-              <circle cx="17.5" cy="6.5" r="1.2" fill="#333"/>
-            </svg>
-          </a>
-        </div>
+    <div class="container">
+      <div class="hero">
+        <h1>Creative Vision</h1>
+        <p>Contemporary art that speaks to the soul</p>
       </div>
-    </div>
 
-    <!-- Work -->
-    <div id="work" class="page">
-      <div class="container">
-        <div class="hero">
-          <h1>Portfolio</h1>
-          <p>A collection across painting, mixed media, and digital studies. Selected works shown below.</p>
-        </div>
-
-        <p style="max-width: 800px; margin: 0 auto 30px; color:#555; text-align:center;">
-          Themes include light memory, urban rhythm, and the tension between organic gesture and geometric control.
-          Works are arranged chronologically with notes on materials and process.
-        </p>
-
-        <div class="work-gallery">
-          <!-- Keep your existing items (example shown) -->
+      <div class="home-layout">
+        <!-- Featured artworks -->
+        <div class="featured-gallery">
           <div class="artwork-item">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=800&h=500&fit=crop" alt="Ethereal Landscapes">
+            <img loading="eager" src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1000&h=600&fit=crop" alt="Featured Artwork 1">
             <div class="artwork-info">
-              <h3>Ethereal Landscapes</h3>
-              <p>Oil painting exploring dreamlike natural forms</p>
+              <h3>Urban Reflections</h3>
+              <p>Mixed media on canvas exploring the intersection of city life and human emotion through vibrant colors and dynamic forms.</p>
             </div>
           </div>
-          <!-- …other work items remain… -->
+
+          <div class="artwork-item">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=1000&h=600&fit=crop" alt="Featured Artwork 2">
+            <div class="artwork-info">
+              <h3>Silent Symphony</h3>
+              <p>Acrylic painting capturing the quiet moments of contemplation, using subtle textures and monochromatic tones.</p>
+            </div>
+          </div>
+
+          <div class="artwork-item">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=1000&h=600&fit=crop" alt="Featured Artwork 3">
+            <div class="artwork-info">
+              <h3>Digital Dreams</h3>
+              <p>Contemporary digital art piece exploring the boundaries between reality and imagination in our connected world.</p>
+            </div>
+          </div>
         </div>
+
+        <!-- Collaborations -->
+        <aside class="collaborations">
+          <h2>Collaborations</h2>
+          <div class="collaboration-item">
+            <h3>City Light Residency</h3>
+            <p>Site-specific works with local architects, mapping how light shapes public space across seasons.</p>
+          </div>
+          <div class="collaboration-item">
+            <h3>Echoes / Voices</h3>
+            <p>Sound and pigment experiment with a composer; paintings respond to field recordings and voice.</p>
+          </div>
+          <div class="collaboration-item">
+            <h3>Digital Weave</h3>
+            <p>Cross-disciplinary project with a creative coder, blending generative patterns with hand-painted layers.</p>
+          </div>
+        </aside>
       </div>
-    </div>
 
-    <!-- About (updated with your inputs) -->
-    <div id="about" class="page">
-      <div class="container">
-        <div class="hero">
-          <h1>About</h1>
-          <p>Sustainable practice at the intersection of art and fashion</p>
-        </div>
-        <div style="max-width:900px;margin:0 auto;color:#555;">
-          <p style="margin-bottom:16px;">
-            XinXinWang is a London-based artist working across painting, mixed media, and fashion-adjacent forms.
-            The practice centres on sustainability—favouring recycled, responsibly sourced, or low-impact materials—
-            and explores how garments and canvases can both carry memory, place, and care.
-          </p>
-          <p style="margin-bottom:16px;">
-            Current studio research looks at material lifecycles: dyes made from natural or kitchen waste, repurposed
-            textiles, and surfaces that can be repaired rather than discarded. The aim is to keep beauty and rigour
-            without wastefulness—letting craft and ethics sit together.
-          </p>
-          <p>
-            Based in London, UK. Studying at Kingston School of Art.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- C.V. (with Kingston + Chelsea Arts Club Trust) -->
-    <div id="cv" class="page">
-      <div class="container">
-        <div class="hero">
-          <h1>C.V.</h1>
-          <p>Selected exhibitions, education, and awards</p>
-        </div>
-
-        <!-- Logo slot: drop a file at /assets/kingston-logo.svg -->
-        <div class="cv-logos">
-          <!-- Minimal placeholder logo reference -->
-          <img src="assets/kingston-logo.svg" alt="Kingston School of Art logo" onerror="this.style.display='none'">
-        </div>
-
-        <div style="max-width:900px;margin:0 auto;color:#555;">
-          <h3 style="font-weight:500;margin-bottom:8px;">Education</h3>
-          <ul style="margin:0 0 20px 18px;">
-            <li>Kingston School of Art — London, UK (current)</li>
-          </ul>
-
-          <h3 style="font-weight:500;margin-bottom:8px;">Awards / Grants</h3>
-          <ul style="margin:0 0 20px 18px;">
-            <li>Chelsea Arts Club Trust — Recipient</li>
-          </ul>
-
-          <h3 style="font-weight:500;margin-bottom:8px;">Selected Exhibitions</h3>
-          <ul style="margin:0 0 20px 18px;">
-            <li>2025 — <em>Light / Memory</em>, Group Show, London</li>
-            <li>2024 — <em>Thresholds</em>, Duo Exhibition, Manchester</li>
-          </ul>
-
-          <p><small>Full CV available on request.</small></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contact (Instagram only, as requested) -->
-    <div id="contact" class="page">
-      <div class="container">
-        <div class="hero">
-          <h1>Contact</h1>
-          <p>For commissions and enquiries, please use Instagram</p>
-        </div>
-
-        <div style="display:flex;justify-content:center;">
-          <a href="https://instagram.com/xinxinwang.artist" target="_blank" rel="noopener" aria-label="Instagram: @xinxinwang.artist" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#333;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5" stroke="#333" stroke-width="1.5"/>
-              <circle cx="12" cy="12" r="4" stroke="#333" stroke-width="1.5"/>
-              <circle cx="17.5" cy="6.5" r="1.2" fill="#333"/>
-            </svg>
-            <span>@xinxinwang.artist</span>
-          </a>
-        </div>
+      <!-- IG icon-only link -->
+      <div class="home-socials" aria-label="Social links">
+        <a href="https://instagram.com/xinxinwang.artist" target="_blank" rel="noopener" aria-label="Instagram: @xinxinwang.artist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="#333" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="4" stroke="#333" stroke-width="1.5"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="#333"/>
+          </svg>
+        </a>
       </div>
     </div>
   </main>
@@ -279,19 +92,6 @@
     </div>
   </footer>
 
-  <script>
-    // Page switcher
-    function showPage(pageId) {
-      const pages = document.querySelectorAll('.page');
-      pages.forEach(p => p.classList.remove('active'));
-      const target = document.getElementById(pageId);
-      if (target) target.classList.add('active');
-      if (pageId === 'home') {
-        document.querySelectorAll('#home img[loading="lazy"]').forEach(img => {
-          if (!img.complete) img.loading = 'eager';
-        });
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
