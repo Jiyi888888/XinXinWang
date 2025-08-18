@@ -33,6 +33,13 @@ nav {
   color: inherit;           /* prevent purple/visited colour */
   text-decoration: none;    /* keep no underline in all states */
 }
+/* Ensure logo link looks identical to plain logo text */
+.logo a {
+  all: inherit;            /* inherit ALL styles from .logo */
+  text-decoration: none;   /* no underline */
+  color: inherit;          /* same colour as logo */
+  display: inline-block;   /* keeps spacing consistent */
+}
 
 .nav-links {
   display: flex; list-style: none; gap: 28px; justify-content: center;
