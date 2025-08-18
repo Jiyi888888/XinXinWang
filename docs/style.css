@@ -20,7 +20,19 @@ nav {
   max-width: 1200px; margin: 0 auto; padding: 0 20px;
   gap: 10px; position: relative;
 }
-.logo { font-size: 24px; font-weight: 300; letter-spacing: 2px; text-align: center; }
+/* make the logo link look identical to plain text */
+.logo a {
+  color: inherit;           /* keep same colour as surrounding text */
+  text-decoration: none;    /* remove underline */
+}
+.logo a:link,
+.logo a:visited,
+.logo a:hover,
+.logo a:active,
+.logo a:focus {
+  color: inherit;           /* prevent purple/visited colour */
+  text-decoration: none;    /* keep no underline in all states */
+}
 
 .nav-links {
   display: flex; list-style: none; gap: 28px; justify-content: center;
