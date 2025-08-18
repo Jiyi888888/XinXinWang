@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact — XinXinWang</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Page-scoped tweak: make the hero copy exactly two lines on desktop -->
+  <style>
+    body[data-page="contact"] .contact-lede { max-width: 1000px; margin: 0 auto; line-height: 1.8; text-align: center; }
+    body[data-page="contact"] .contact-lede .line { display: block; }
+    @media (min-width: 769px) {
+      body[data-page="contact"] .contact-lede .line { white-space: nowrap; } /* force each to one line */
+    }
+    @media (max-width: 768px) {
+      body[data-page="contact"] .contact-lede { max-width: 700px; } /* normal wrapping on mobile */
+    }
+  </style>
 </head>
 <body data-page="contact">
   <nav>
@@ -29,10 +40,9 @@
     <div class="container">
       <div class="hero">
         <h1></h1>
-        <p style="max-width:700px;margin:0 auto;line-height:1.8;">
-          For commissions and enquiries, please reach out via email
-          or send me a message on Instagram.<br>
-          All works are available for purchase. Feel free to get in touch anytime!
+        <p class="contact-lede">
+          <span class="line">For commissions and enquiries, please reach out via email or send me a message on Instagram.</span>
+          <span class="line">All works are available for purchase. Feel free to get in touch anytime!</span>
         </p>
       </div>
 
