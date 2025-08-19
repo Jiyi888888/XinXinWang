@@ -20,27 +20,19 @@ nav {
   max-width: 1200px; margin: 0 auto; padding: 0 20px;
   gap: 10px; position: relative;
 }
-/* make the logo link look identical to plain text */
+
+/* logo text (restored) */
+.logo { font-size: 24px; font-weight: 300; letter-spacing: 2px; text-align: center; }
+
+/* make the logo link look identical to plain text (no size/colour change) */
 .logo a {
-  color: inherit;           /* keep same colour as surrounding text */
-  text-decoration: none;    /* remove underline */
-}
-.logo a:link,
-.logo a:visited,
-.logo a:hover,
-.logo a:active,
-.logo a:focus {
-  color: inherit;           /* prevent purple/visited colour */
-  text-decoration: none;    /* keep no underline in all states */
-}
-/* Ensure logo link looks identical to plain logo text */
-.logo a {
-  all: inherit;            /* inherit ALL styles from .logo */
-  text-decoration: none;   /* no underline */
-  color: inherit;          /* same colour as logo */
-  display: inline-block;   /* keeps spacing consistent */
+  all: inherit;          /* inherit ALL styles from .logo (font-size, weight, spacing) */
+  text-decoration: none; /* no underline */
+  color: inherit;        /* no blue/purple */
+  cursor: pointer;       /* hand cursor on hover */
 }
 
+/* nav links */
 .nav-links {
   display: flex; list-style: none; gap: 28px; justify-content: center;
 }
@@ -101,7 +93,6 @@ body[data-page="home"] .featured-gallery .artwork-info {
   text-align: center;
 }
 
-
 /* === Work grid === */
 .work-gallery {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
@@ -119,7 +110,6 @@ body[data-page="home"] .featured-gallery .artwork-info {
 body[data-page="work"] .work-gallery .artwork-info > p {
   display: none;
 }
-
 
 /* === Lightbox (fullscreen on Work) === */
 .lightbox {
