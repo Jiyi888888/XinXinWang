@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CV — XinXinWang</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* === Page-scoped spacing for section titles (easy to undo) === */
+    body[data-page="cv"] .cv-wrap { max-width: 900px; margin: 0 auto; color: #555; line-height: 1.8; }
+    body[data-page="cv"] .cv-section-title { font-weight: 700; margin: 18px 0 10px; letter-spacing: .2px; }
+    body[data-page="cv"] .cv-block { margin: 0 0 18px; }
+  </style>
 </head>
 <body data-page="cv">
   <nav>
@@ -29,22 +35,36 @@
     <div class="container">
       <div class="hero"><p></p></div>
 
-      <!-- === CV Content START === -->
-      <div style="max-width:900px;margin:0 auto;color:#555;line-height:1.8;">
-        <p><strong>Education</strong><br>
-        MA Sustainable Fashion (Business and Practice), Kingston School of Art, London, UK — 2023–2025<br>
-        BSc Software Engineering (Project Management), East China JiaoTong University, China — 2015–2019</p>
+      <!-- === CV Content START (2025-08-19) === -->
+      <div class="cv-wrap">
+        <div class="cv-block">
+          <div class="cv-section-title">Education</div>
+          <p>
+            MA Sustainable Fashion (Business and Practice)<br>
+            Kingston School of Art, Kingston University, London, UK<br>
+            2024 – 2025
+          </p>
+          <p>
+            BSc Software Engineering (Project Management)<br>
+            East China Jiaotong University, China<br>
+            2005 – 2009
+          </p>
+        </div>
 
-        <p><strong>Awards / Grants</strong><br>
-        2024 — Chelsea Arts Club Trust Award for Textiles and Fashion (Recipient)<br>
-        2012 — One Show Greater China Youth Creative Competition (Head & Shoulders) — Bronze Award<br>
-        2012 — ROI Awards Microfilm (Häagen-Dazs: Because of the Roundness of the Sun) — Bronze Award</p>
+        <div class="cv-block">
+          <div class="cv-section-title">Awards / Grants</div>
+          <p>2024 Chelsea Arts Club Trust Award for Textiles and Fashion, London, UK (Recipient)</p>
+          <p>2012 One Show Greater China Youth Creative Competition (Head &amp; Shoulders) — Bronze Award</p>
+          <p>2012 ROI Awards Microfilm China (Häagen-Dazs: Because of the Roundness of the Sun) — Bronze Award</p>
+        </div>
 
-        <p><strong>Selected Exhibitions</strong><br>
-        September 2025 — Flat Time House for Chelsea Arts Club Trust Awards Salon (Upcoming)<br>
-        September 2025 — London Design Week: Graduation Show of Kingston School of Art (Upcoming)<br>
-        August 2025 — The Chelsea Arts Club Summer Exhibition<br>
-        April 2025 — The Chelsea Arts Club Trust Charity Auction</p>
+        <div class="cv-block">
+          <div class="cv-section-title">Selected Exhibitions</div>
+          <p>September 2025 Flat Time House for Chelsea Arts Club Trust Awards Salon, London, UK (Upcoming)</p>
+          <p>September 2025 London Design Week: Graduation Show of Kingston School of Art, UK (Upcoming)</p>
+          <p>August 2025 The Chelsea Arts Club Summer Exhibition, London, UK</p>
+          <p>April 2025 The Chelsea Arts Club Trust Charity Auction, London, UK</p>
+        </div>
       </div>
       <!-- === CV Content END === -->
     </div>
